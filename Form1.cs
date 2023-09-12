@@ -1,12 +1,15 @@
 ﻿using Microsoft.Web.WebView2.Core;
 using Microsoft.Web.WebView2.WinForms;
+using Microsoft.Web.WebView2.Wpf;
 using ScintillaNET;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
+using System.Reflection.Emit;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
@@ -36,11 +39,14 @@ namespace WebViewJsDebugger
 
         }
 
+        CoreWebView2DownloadOperation downloadOperation;
         private async void button1_Click(object sender, EventArgs e)
         {
                         
             string script = scintilla1.Text;
             webView21.WebMessageReceived += WebView_WebMessageReceived;
+            webView21.CoreWebView2.DownloadStarting += CoreWebView2_DownloadStarting;
+
             // Execute the script
             var result = await webView21.ExecuteScriptAsync(script);            
         }
@@ -48,14 +54,47 @@ namespace WebViewJsDebugger
 
         private async void button2_Click(object sender, EventArgs e)
         {
-            webView21.Source = new Uri("https://apps.e-efka.gov.gr/ePrivateConstructions/secure/Constructions.xhtml", UriKind.Absolute);
+            webView21.Source = new Uri(txtUrl.Text, UriKind.Absolute);
         }
 
         private void WebView_WebMessageReceived(object sender, CoreWebView2WebMessageReceivedEventArgs args)
         {
             string message = args.TryGetWebMessageAsString();
-
             webView21.WebMessageReceived -= WebView_WebMessageReceived;
+            
+        }
+
+        private void CoreWebView2_DownloadStarting(object sender, CoreWebView2DownloadStartingEventArgs e)
+        {
+            downloadOperation = e.DownloadOperation; // Store the 'DownloadOperation' for later use in events
+            downloadOperation.BytesReceivedChanged += DownloadOperation_BytesReceivedChanged; // Subscribe to BytesReceivedChanged event
+            downloadOperation.EstimatedEndTimeChanged += DownloadOperation_EstimatedEndTimeChanged; // Subsribe to EstimatedEndTimeChanged event
+            downloadOperation.StateChanged += DownloadOperation_StateChanged;
+        }
+
+        private void DownloadOperation_StateChanged(object sender, object e)
+        {
+            Debug.WriteLine("State " + downloadOperation.State.ToString());
+
+            if (downloadOperation.State == CoreWebView2DownloadState.Completed)
+            {
+                Debug.WriteLine($"Download of {downloadOperation.ResultFilePath} completed.");
+
+                // Unsubscribe from the events when download is completed
+                downloadOperation.BytesReceivedChanged -= DownloadOperation_BytesReceivedChanged;
+                downloadOperation.EstimatedEndTimeChanged -= DownloadOperation_EstimatedEndTimeChanged;
+                downloadOperation.StateChanged -= DownloadOperation_StateChanged;
+            }
+        }
+
+        private void DownloadOperation_EstimatedEndTimeChanged(object sender, object e)
+        {
+            Debug.WriteLine("EstimatedEndTimeChanged " +downloadOperation.EstimatedEndTime.ToString()); // Show the progress
+        }
+
+        private void DownloadOperation_BytesReceivedChanged(object sender, object e)
+        {
+            Debug.WriteLine("BytesReceivedChanged " +downloadOperation.BytesReceived.ToString()); // Show the progress
         }
     }
 }

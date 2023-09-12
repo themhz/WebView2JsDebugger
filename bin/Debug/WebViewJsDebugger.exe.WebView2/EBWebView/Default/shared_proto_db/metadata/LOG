@@ -1,2 +1,3 @@
-2023/07/04-13:58:32.950 7bd4 Creating DB C:\Users\themis\source\repos\WebViewJsDebugger\bin\Debug\WebViewJsDebugger.exe.WebView2\EBWebView\Default\shared_proto_db\metadata since it was missing.
-2023/07/04-13:58:32.959 7bd4 Reusing MANIFEST C:\Users\themis\source\repos\WebViewJsDebugger\bin\Debug\WebViewJsDebugger.exe.WebView2\EBWebView\Default\shared_proto_db\metadata/MANIFEST-000001
+2023/09/11-12:34:48.050 24d0 Reusing MANIFEST C:\Users\themis\source\repos\WebViewJsDebugger\bin\Debug\WebViewJsDebugger.exe.WebView2\EBWebView\Default\shared_proto_db\metadata/MANIFEST-000001
+2023/09/11-12:34:48.051 24d0 Recovering log #3
+2023/09/11-12:34:48.052 24d0 Reusing old log C:\Users\themis\source\repos\WebViewJsDebugger\bin\Debug\WebViewJsDebugger.exe.WebView2\EBWebView\Default\shared_proto_db\metadata/000003.log 
