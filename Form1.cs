@@ -106,7 +106,7 @@ namespace WebViewJsDebugger
         {
             using (OpenFileDialog openFileDialog = new OpenFileDialog())
             {
-                openFileDialog.InitialDirectory = "c:\\";
+                openFileDialog.InitialDirectory = "C:\\Users\\themis\\Documents\\jscodes";
                 openFileDialog.Filter = "Text files (*.txt)|*.txt|All files (*.*)|*.*";
                 openFileDialog.FilterIndex = 1;
                 openFileDialog.RestoreDirectory = true;
@@ -203,5 +203,26 @@ namespace WebViewJsDebugger
             scintillaControl.Margins[0].Width = 16;  // Initial width, will be adjusted by the SetLineNumberMargin method
         }
 
+        private void newToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // Check for unsaved changes
+            if (!string.IsNullOrEmpty(scintilla1.Text)) // or any other condition you'd use to detect changes
+            {
+                var result = MessageBox.Show("There are unsaved changes. Do you want to save them?", "Unsaved Changes", MessageBoxButtons.YesNoCancel);
+
+                switch (result)
+                {
+                    case DialogResult.Yes:
+                        menuSave_Click(this, EventArgs.Empty); // Call the save method
+                        break;
+                    case DialogResult.Cancel:
+                        return; // Cancel the new file operation
+                }
+            }
+
+            // Clear the Scintilla control and reset the file path
+            scintilla1.Text = "";
+            currentFilePath = null; // Assuming you have this variable from previous interactions
+        }
     }
 }
