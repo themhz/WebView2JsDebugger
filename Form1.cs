@@ -15,6 +15,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace WebViewJsDebugger
 {
@@ -49,11 +50,13 @@ namespace WebViewJsDebugger
         {
                         
             string script = scintilla1.Text;
-            webView21.WebMessageReceived += WebView_WebMessageReceived;
+            webView21.WebMessageReceived += WebView_WebMessageReceived
+                ;
             webView21.CoreWebView2.DownloadStarting += CoreWebView2_DownloadStarting;
 
             // Execute the script
-            var result = await webView21.ExecuteScriptAsync(script);            
+            var result = await webView21.ExecuteScriptAsync(script);
+           
         }
     
 
@@ -66,7 +69,12 @@ namespace WebViewJsDebugger
         {
             string message = args.TryGetWebMessageAsString();
             webView21.WebMessageReceived -= WebView_WebMessageReceived;
+            //lstlog.Items.Add(message);
+            lstlog.Columns[0].Width = -2;
+            lstlog.Items.Insert(0, message);
             
+
+
         }
 
         private void CoreWebView2_DownloadStarting(object sender, CoreWebView2DownloadStartingEventArgs e)
