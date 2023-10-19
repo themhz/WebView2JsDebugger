@@ -41,6 +41,10 @@
       "frameworks": {
         "net472": {
           "dependencies": {
+            "Jint": {
+              "target": "Package",
+              "version": "[2.11.58, )"
+            },
             "Microsoft.NETFramework.ReferenceAssemblies": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
@@ -72,6 +76,10 @@
             "System.ValueTuple": {
               "target": "Package",
               "version": "[4.5.0, )"
+            },
+            "esprima": {
+              "target": "Package",
+              "version": "[3.0.1, )"
             },
             "jacobslusser.ScintillaNET": {
               "target": "Package",

@@ -51,9 +51,6 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
-    <Reference Include="Windows">
-      <HintPath>..\..\..\..\..\Program Files (x86)\Windows Kits\10\UnionMetadata\Facade\Windows.WinMD</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Form1.cs">
@@ -90,8 +87,14 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="esprima">
+      <Version>3.0.1</Version>
+    </PackageReference>
     <PackageReference Include="jacobslusser.ScintillaNET">
       <Version>3.6.3</Version>
+    </PackageReference>
+    <PackageReference Include="Jint">
+      <Version>2.11.58</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies">
       <Version>1.0.0</Version>

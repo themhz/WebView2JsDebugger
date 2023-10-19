@@ -16,6 +16,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using Jint;
+using Esprima;
+
 
 
 
@@ -30,8 +33,8 @@ namespace WebViewJsDebugger
         {
                         
             InitializeComponent();
-            //txtUrl.Text = "https://portal.tee.gr/ypeka/auth/pages/app/dilosi.jspx";
-            txtUrl.Text = "https://apps.tee.gr/buildID/faces/appMain";
+            txtUrl.Text = "https://portal.tee.gr/ypeka/auth/pages/app/dilosi.jspx";                         
+            //txtUrl.Text = "https://apps.tee.gr/buildID/faces/appMain";
             this.KeyPreview = true;
             scintilla1.Lexer = Lexer.Cpp;
 
@@ -57,12 +60,23 @@ namespace WebViewJsDebugger
         {
                         
             string script = scintilla1.Text;
-            webView21.WebMessageReceived += WebView_WebMessageReceived
-                ;
+            try
+            {
+                var parser = new JavaScriptParser();
+                parser.ParseScript(script);                
+            }
+            catch (ParserException scripterror)
+            {
+                MessageBox.Show($"Syntax error: {scripterror.Message}");
+            }
+
+            webView21.WebMessageReceived += WebView_WebMessageReceived;
             webView21.CoreWebView2.DownloadStarting += CoreWebView2_DownloadStarting;
 
+            var result = await webView21.ExecuteScriptAsync("window.onerror = function(message, source, lineno, colno, error) {\r\n    var errorMsg = `Error occurred in script: ${message} at ${source}:${lineno}:${colno}`;\r\n    console.log('JS_ERROR: ' + errorMsg);\r\n    return true; // prevents the default browser error handling.\r\n};");
+
             // Execute the script
-            var result = await webView21.ExecuteScriptAsync(script);
+            result = await webView21.ExecuteScriptAsync(script);
            
         }
     
