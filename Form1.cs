@@ -17,6 +17,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
+
+
+
 namespace WebViewJsDebugger
 {
     public partial class Form1 : Form
@@ -27,6 +30,8 @@ namespace WebViewJsDebugger
         {
                         
             InitializeComponent();
+            //txtUrl.Text = "https://portal.tee.gr/ypeka/auth/pages/app/dilosi.jspx";
+            txtUrl.Text = "https://apps.tee.gr/buildID/faces/appMain";
             this.KeyPreview = true;
             scintilla1.Lexer = Lexer.Cpp;
 
@@ -41,6 +46,8 @@ namespace WebViewJsDebugger
             scintilla1.Styles[Style.Cpp.Character].ForeColor = Color.FromArgb(163, 21, 21); // Red
             scintilla1.Styles[Style.Cpp.Operator].ForeColor = Color.Purple;
             scintilla1.Styles[Style.Cpp.Identifier].ForeColor = Color.Black;
+
+            
 
 
         }
@@ -232,5 +239,21 @@ namespace WebViewJsDebugger
             scintilla1.Text = "";
             currentFilePath = null; // Assuming you have this variable from previous interactions
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            notifyIcon1.Icon = SystemIcons.Application;
+            notifyIcon1.Visible = true;
+
+            // Set the content of the balloon tip
+            notifyIcon1.BalloonTipTitle = "Application started";
+            notifyIcon1.BalloonTipText = "Application started";
+            notifyIcon1.BalloonTipIcon = ToolTipIcon.Info; // You can choose between None, Info, Warning, and Error
+
+            // Display the balloon tip
+            notifyIcon1.ShowBalloonTip(3000);  // 3000 is the duration in milliseconds  
+        }
+ 
+
     }
 }

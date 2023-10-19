@@ -1,3 +1,6 @@
-2023/10/02-19:20:58.263 6d88 Reusing MANIFEST C:\Users\themis\source\repos\WebViewJsDebugger\bin\Debug\WebViewJsDebugger.exe.WebView2\EBWebView\Default\Session Storage/MANIFEST-000001
-2023/10/02-19:20:58.264 6d88 Recovering log #4
-2023/10/02-19:20:58.269 6d88 Reusing old log C:\Users\themis\source\repos\WebViewJsDebugger\bin\Debug\WebViewJsDebugger.exe.WebView2\EBWebView\Default\Session Storage/000004.log 
+2023/10/19-10:58:18.444 2e24 Reusing MANIFEST C:\Users\themis\source\repos\WebViewJsDebugger\bin\Debug\WebViewJsDebugger.exe.WebView2\EBWebView\Default\Session Storage/MANIFEST-000001
+2023/10/19-10:58:18.445 2e24 Recovering log #4
+2023/10/19-10:58:18.448 2e24 Reusing old log C:\Users\themis\source\repos\WebViewJsDebugger\bin\Debug\WebViewJsDebugger.exe.WebView2\EBWebView\Default\Session Storage/000004.log 
+2023/10/19-11:27:03.547 2e24 Level-0 table #7: started
+2023/10/19-11:27:03.552 2e24 Level-0 table #7: 13668 bytes OK
+2023/10/19-11:27:03.556 2e24 Delete type=0 #4
