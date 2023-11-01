@@ -33,8 +33,8 @@ namespace WebViewJsDebugger
         {
                         
             InitializeComponent();
-            txtUrl.Text = "https://portal.tee.gr/ypeka/auth/pages/app/dilosi.jspx";                         
-            //txtUrl.Text = "https://apps.tee.gr/buildID/faces/appMain";
+            //txtUrl.Text = "https://portal.tee.gr/ypeka/auth/pages/app/dilosi.jspx";                         
+            txtUrl.Text = "https://apps.tee.gr/buildID/faces/appMain";
             this.KeyPreview = true;
             scintilla1.Lexer = Lexer.Cpp;
 
@@ -50,7 +50,7 @@ namespace WebViewJsDebugger
             scintilla1.Styles[Style.Cpp.Operator].ForeColor = Color.Purple;
             scintilla1.Styles[Style.Cpp.Identifier].ForeColor = Color.Black;
 
-            
+            webView21.NavigationCompleted += WebView_NavigationCompleted;
 
 
         }
@@ -62,14 +62,17 @@ namespace WebViewJsDebugger
             string script = scintilla1.Text;
             try
             {
+                
                 var parser = new JavaScriptParser();
-                parser.ParseScript(script);                
+                parser.ParseScript(script);
             }
             catch (ParserException scripterror)
             {
                 MessageBox.Show($"Syntax error: {scripterror.Message}");
             }
 
+            //webView21.chan
+            
             webView21.WebMessageReceived += WebView_WebMessageReceived;
             webView21.CoreWebView2.DownloadStarting += CoreWebView2_DownloadStarting;
 
@@ -88,6 +91,7 @@ namespace WebViewJsDebugger
 
         private void WebView_WebMessageReceived(object sender, CoreWebView2WebMessageReceivedEventArgs args)
         {
+            notify("WebMessageReceived event fired");
             string message = args.TryGetWebMessageAsString();
             webView21.WebMessageReceived -= WebView_WebMessageReceived;
             //lstlog.Items.Add(message);
@@ -96,6 +100,11 @@ namespace WebViewJsDebugger
             
 
 
+        }
+
+        private void WebView_NavigationCompleted(object sender, CoreWebView2NavigationCompletedEventArgs args)
+        {
+            notify("change page event fired");
         }
 
         private void CoreWebView2_DownloadStarting(object sender, CoreWebView2DownloadStartingEventArgs e)
@@ -147,11 +156,13 @@ namespace WebViewJsDebugger
                     try
                     {
                         scintilla1.Text = File.ReadAllText(currentFilePath);
+                        UpdateTitleBar(currentFilePath); // Update the title bar
                     }
                     catch (Exception ex)
                     {
                         MessageBox.Show($"Error reading file: {ex.Message}");
-                    }
+                    }                
+
                 }
             }
         }
@@ -181,10 +192,50 @@ namespace WebViewJsDebugger
             {
                 File.WriteAllText(currentFilePath, scintilla1.Text);
                 MessageBox.Show("File saved successfully!");
+                UpdateTitleBar(currentFilePath);
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"Error saving file: {ex.Message}");
+            }
+
+
+        }
+
+        private void saveAsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (SaveFileDialog saveFileDialog = new SaveFileDialog())
+            {
+                saveFileDialog.Filter = "Text files (*.txt)|*.txt|All files (*.*)|*.*";
+                saveFileDialog.FilterIndex = 1;
+                saveFileDialog.RestoreDirectory = true;
+
+                if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    currentFilePath = saveFileDialog.FileName;
+                    try
+                    {
+                        File.WriteAllText(currentFilePath, scintilla1.Text);
+                        MessageBox.Show("File saved successfully!");
+                        UpdateTitleBar(currentFilePath); // Update the title bar
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Error saving file: {ex.Message}");
+                    }
+                }
+            }
+        }
+
+        private void UpdateTitleBar(string filePath)
+        {
+            if (string.IsNullOrEmpty(filePath))
+            {
+                this.Text = "My Application";
+            }
+            else
+            {
+                this.Text = $"My Application - {Path.GetFileName(filePath)}";
             }
         }
 
@@ -248,7 +299,7 @@ namespace WebViewJsDebugger
                         return; // Cancel the new file operation
                 }
             }
-
+            UpdateTitleBar("");
             // Clear the Scintilla control and reset the file path
             scintilla1.Text = "";
             currentFilePath = null; // Assuming you have this variable from previous interactions
@@ -256,18 +307,23 @@ namespace WebViewJsDebugger
 
         private void button3_Click(object sender, EventArgs e)
         {
+            
+        }
+ 
+        private void notify(string message)
+        {
             notifyIcon1.Icon = SystemIcons.Application;
             notifyIcon1.Visible = true;
 
             // Set the content of the balloon tip
-            notifyIcon1.BalloonTipTitle = "Application started";
-            notifyIcon1.BalloonTipText = "Application started";
+            notifyIcon1.BalloonTipTitle = "Javascript Notfication";
+            notifyIcon1.BalloonTipText = message;
             notifyIcon1.BalloonTipIcon = ToolTipIcon.Info; // You can choose between None, Info, Warning, and Error
 
             // Display the balloon tip
             notifyIcon1.ShowBalloonTip(3000);  // 3000 is the duration in milliseconds  
         }
- 
 
+       
     }
 }
