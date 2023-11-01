@@ -28,6 +28,7 @@ namespace WebViewJsDebugger
     public partial class Form1 : Form
     {
         private string currentFilePath = null;
+        private SearchForm searchForm;
 
         public Form1()
         {
@@ -51,6 +52,7 @@ namespace WebViewJsDebugger
             scintilla1.Styles[Style.Cpp.Identifier].ForeColor = Color.Black;
 
             webView21.NavigationCompleted += WebView_NavigationCompleted;
+            lstlog.SelectedIndexChanged += lstlog_SelectedIndexChanged;
 
 
         }
@@ -231,11 +233,11 @@ namespace WebViewJsDebugger
         {
             if (string.IsNullOrEmpty(filePath))
             {
-                this.Text = "My Application";
+                this.Text = "WebView Js Debugger";
             }
             else
             {
-                this.Text = $"My Application - {Path.GetFileName(filePath)}";
+                this.Text = $"WebView Js Debugger - {Path.GetFileName(filePath)}";
             }
         }
 
@@ -247,7 +249,39 @@ namespace WebViewJsDebugger
                 e.Handled = true;  // Indicate that you've handled this key event                
                 e.SuppressKeyPress = true;  // Prevent the key press from being sent to other controls
             }
+            if (e.Control && e.KeyCode == Keys.F)
+            {
+                if (searchForm == null || searchForm.IsDisposed)
+                {
+                    searchForm = new SearchForm();
+                    searchForm.FindNextClicked += SearchForm_FindNextClicked;
+                }
+                searchForm.Show();
+                e.Handled = true;
+                e.SuppressKeyPress = true;  // Add this line
+
+            }
         }
+        private void SearchForm_FindNextClicked(object sender, EventArgs e)
+        {
+            string searchText = searchForm.SearchText;
+            int startPosition = scintilla1.SelectionStart + scintilla1.SelectionEnd;
+
+            // Set the search range
+            scintilla1.TargetStart = startPosition;
+            scintilla1.TargetEnd = scintilla1.TextLength;
+
+            // Search for the text
+            int searchResult = scintilla1.SearchInTarget(searchText);
+            if (searchResult != -1)
+            {
+                // Select the found text
+                scintilla1.SetSelection(scintilla1.TargetEnd, scintilla1.TargetStart);
+                scintilla1.ScrollCaret();
+            }
+        }
+
+
 
         private void scintilla1_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -268,20 +302,7 @@ namespace WebViewJsDebugger
         {
             SetLineNumberMargin(sender as Scintilla);
         }
-
-        private void SetupScintilla(Scintilla scintillaControl)
-        {
-            // Set the line numbers
-            scintillaControl.Styles[Style.LineNumber].BackColor = Color.LightGray;
-            scintillaControl.Styles[Style.LineNumber].ForeColor = Color.Black;
-            scintillaControl.Styles[Style.LineNumber].Font = "Consolas";
-            scintillaControl.Styles[Style.LineNumber].Size = 9;
-
-            scintillaControl.Margins[0].Type = MarginType.Number;
-            scintillaControl.Margins[0].Mask = 0;
-            scintillaControl.Margins[0].Sensitive = false;
-            scintillaControl.Margins[0].Width = 16;  // Initial width, will be adjusted by the SetLineNumberMargin method
-        }
+      
 
         private void newToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -324,6 +345,36 @@ namespace WebViewJsDebugger
             notifyIcon1.ShowBalloonTip(3000);  // 3000 is the duration in milliseconds  
         }
 
-       
+        private void lstlog_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (lstlog.SelectedItems.Count > 0)
+            {
+                string text = lstlog.SelectedItems[0].Text;
+                txtlog.Text = FormatJson(text);
+            }
+            else
+            {
+                txtlog.Text = ""; // Clear the TextBox if nothing is selected
+            }
+        }
+
+        private string FormatJson(string json)
+        {
+            try
+            {
+                // Parse the JSON string
+                var parsedJson = Newtonsoft.Json.Linq.JToken.Parse(json);
+
+                // Re-serialize it with indentation
+                return parsedJson.ToString(Newtonsoft.Json.Formatting.Indented);
+            }
+            catch (Newtonsoft.Json.JsonReaderException)
+            {
+                // If the text is not a valid JSON string, just return it as is
+                return json;
+            }
+        }
+
+
     }
 }
