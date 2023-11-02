@@ -37,18 +37,19 @@
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuOpen = new System.Windows.Forms.ToolStripMenuItem();
             this.menuSave = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveAsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.button3 = new System.Windows.Forms.Button();
+            this.chkPersistCode = new System.Windows.Forms.CheckBox();
+            this.splitContainer3 = new System.Windows.Forms.SplitContainer();
             this.lstlog = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.txtlog = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtUrl = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
-            this.saveAsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.txtlog = new System.Windows.Forms.TextBox();
-            this.splitContainer3 = new System.Windows.Forms.SplitContainer();
+            this.button3 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.webView21)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -108,8 +109,9 @@
             // 
             // splitContainer2.Panel2
             // 
-            this.splitContainer2.Panel2.Controls.Add(this.splitContainer3);
             this.splitContainer2.Panel2.Controls.Add(this.button3);
+            this.splitContainer2.Panel2.Controls.Add(this.chkPersistCode);
+            this.splitContainer2.Panel2.Controls.Add(this.splitContainer3);
             this.splitContainer2.Panel2.Controls.Add(this.label1);
             this.splitContainer2.Panel2.Controls.Add(this.txtUrl);
             this.splitContainer2.Panel2.Controls.Add(this.button2);
@@ -121,9 +123,9 @@
             // scintilla1
             // 
             this.scintilla1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.scintilla1.Location = new System.Drawing.Point(0, 30);
+            this.scintilla1.Location = new System.Drawing.Point(0, 28);
             this.scintilla1.Name = "scintilla1";
-            this.scintilla1.Size = new System.Drawing.Size(517, 396);
+            this.scintilla1.Size = new System.Drawing.Size(517, 398);
             this.scintilla1.TabIndex = 2;
             this.scintilla1.TextChanged += new System.EventHandler(this.scintilla1_TextChanged);
             this.scintilla1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.scintilla1_KeyDown);
@@ -136,7 +138,7 @@
             this.toolStripMenuItem1});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(517, 30);
+            this.menuStrip1.Size = new System.Drawing.Size(517, 28);
             this.menuStrip1.TabIndex = 3;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -148,111 +150,46 @@
             this.saveAsToolStripMenuItem,
             this.newToolStripMenuItem});
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(46, 26);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(46, 24);
             this.toolStripMenuItem1.Text = "File";
             // 
             // menuOpen
             // 
             this.menuOpen.Name = "menuOpen";
-            this.menuOpen.Size = new System.Drawing.Size(224, 26);
+            this.menuOpen.Size = new System.Drawing.Size(141, 26);
             this.menuOpen.Text = "Open";
             this.menuOpen.Click += new System.EventHandler(this.menuOpen_Click);
             // 
             // menuSave
             // 
             this.menuSave.Name = "menuSave";
-            this.menuSave.Size = new System.Drawing.Size(224, 26);
+            this.menuSave.Size = new System.Drawing.Size(141, 26);
             this.menuSave.Text = "Save";
             this.menuSave.Click += new System.EventHandler(this.menuSave_Click);
-            // 
-            // newToolStripMenuItem
-            // 
-            this.newToolStripMenuItem.Name = "newToolStripMenuItem";
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.newToolStripMenuItem.Text = "New";
-            this.newToolStripMenuItem.Click += new System.EventHandler(this.newToolStripMenuItem_Click);
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(261, 47);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 5;
-            this.button3.Text = "Test";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // lstlog
-            // 
-            this.lstlog.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader1});
-            this.lstlog.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lstlog.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
-            this.lstlog.HideSelection = false;
-            this.lstlog.Location = new System.Drawing.Point(0, 0);
-            this.lstlog.Name = "lstlog";
-            this.lstlog.Size = new System.Drawing.Size(238, 246);
-            this.lstlog.TabIndex = 4;
-            this.lstlog.UseCompatibleStateImageBehavior = false;
-            this.lstlog.View = System.Windows.Forms.View.Details;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(4, 18);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(24, 16);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Url";
-            // 
-            // txtUrl
-            // 
-            this.txtUrl.Location = new System.Drawing.Point(34, 18);
-            this.txtUrl.Name = "txtUrl";
-            this.txtUrl.Size = new System.Drawing.Size(379, 22);
-            this.txtUrl.TabIndex = 2;
-            this.txtUrl.Text = "https://apps.tee.gr/buildID/faces/appMain";
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(419, 18);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(79, 23);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Browse";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(351, 47);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(147, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Upload Code";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // notifyIcon1
-            // 
-            this.notifyIcon1.Text = "notifyIcon1";
-            this.notifyIcon1.Visible = true;
             // 
             // saveAsToolStripMenuItem
             // 
             this.saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
-            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(141, 26);
             this.saveAsToolStripMenuItem.Text = "Save as";
             this.saveAsToolStripMenuItem.Click += new System.EventHandler(this.saveAsToolStripMenuItem_Click);
             // 
-            // txtlog
+            // newToolStripMenuItem
             // 
-            this.txtlog.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtlog.Location = new System.Drawing.Point(0, 0);
-            this.txtlog.Multiline = true;
-            this.txtlog.Name = "txtlog";
-            this.txtlog.Size = new System.Drawing.Size(269, 246);
-            this.txtlog.TabIndex = 6;
+            this.newToolStripMenuItem.Name = "newToolStripMenuItem";
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(141, 26);
+            this.newToolStripMenuItem.Text = "New";
+            this.newToolStripMenuItem.Click += new System.EventHandler(this.newToolStripMenuItem_Click);
+            // 
+            // chkPersistCode
+            // 
+            this.chkPersistCode.AutoSize = true;
+            this.chkPersistCode.Location = new System.Drawing.Point(230, 49);
+            this.chkPersistCode.Name = "chkPersistCode";
+            this.chkPersistCode.Size = new System.Drawing.Size(106, 20);
+            this.chkPersistCode.TabIndex = 8;
+            this.chkPersistCode.Text = "Persist Code";
+            this.chkPersistCode.UseVisualStyleBackColor = true;
             // 
             // splitContainer3
             // 
@@ -272,6 +209,81 @@
             this.splitContainer3.Size = new System.Drawing.Size(511, 246);
             this.splitContainer3.SplitterDistance = 238;
             this.splitContainer3.TabIndex = 7;
+            // 
+            // lstlog
+            // 
+            this.lstlog.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1});
+            this.lstlog.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lstlog.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
+            this.lstlog.HideSelection = false;
+            this.lstlog.Location = new System.Drawing.Point(0, 0);
+            this.lstlog.Name = "lstlog";
+            this.lstlog.Size = new System.Drawing.Size(238, 246);
+            this.lstlog.TabIndex = 4;
+            this.lstlog.UseCompatibleStateImageBehavior = false;
+            this.lstlog.View = System.Windows.Forms.View.Details;
+            // 
+            // txtlog
+            // 
+            this.txtlog.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtlog.Location = new System.Drawing.Point(0, 0);
+            this.txtlog.Multiline = true;
+            this.txtlog.Name = "txtlog";
+            this.txtlog.Size = new System.Drawing.Size(269, 246);
+            this.txtlog.TabIndex = 6;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(4, 18);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(24, 16);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "Url";
+            // 
+            // txtUrl
+            // 
+            this.txtUrl.Location = new System.Drawing.Point(34, 18);
+            this.txtUrl.Name = "txtUrl";
+            this.txtUrl.Size = new System.Drawing.Size(480, 22);
+            this.txtUrl.TabIndex = 2;
+            this.txtUrl.Text = "https://apps.tee.gr/buildID/faces/appMain";
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(34, 46);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(79, 23);
+            this.button2.TabIndex = 1;
+            this.button2.Text = "Browse";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(119, 46);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(105, 23);
+            this.button1.TabIndex = 0;
+            this.button1.Text = "Upload Code";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // notifyIcon1
+            // 
+            this.notifyIcon1.Text = "notifyIcon1";
+            this.notifyIcon1.Visible = true;
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(34, 75);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(94, 23);
+            this.button3.TabIndex = 9;
+            this.button3.Text = "Clear tasks";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // Form1
             // 
@@ -320,11 +332,12 @@
         private System.Windows.Forms.ToolStripMenuItem newToolStripMenuItem;
         private System.Windows.Forms.ListView lstlog;
         private System.Windows.Forms.ColumnHeader columnHeader1;
-        private System.Windows.Forms.Button button3;
         private System.Windows.Forms.NotifyIcon notifyIcon1;
         private System.Windows.Forms.ToolStripMenuItem saveAsToolStripMenuItem;
         private System.Windows.Forms.TextBox txtlog;
         private System.Windows.Forms.SplitContainer splitContainer3;
+        private System.Windows.Forms.CheckBox chkPersistCode;
+        private System.Windows.Forms.Button button3;
     }
 }
 

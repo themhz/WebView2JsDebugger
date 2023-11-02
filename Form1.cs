@@ -77,11 +77,9 @@ namespace WebViewJsDebugger
             
             webView21.WebMessageReceived += WebView_WebMessageReceived;
             webView21.CoreWebView2.DownloadStarting += CoreWebView2_DownloadStarting;
-
-            var result = await webView21.ExecuteScriptAsync("window.onerror = function(message, source, lineno, colno, error) {\r\n    var errorMsg = `Error occurred in script: ${message} at ${source}:${lineno}:${colno}`;\r\n    console.log('JS_ERROR: ' + errorMsg);\r\n    return true; // prevents the default browser error handling.\r\n};");
-
+            
             // Execute the script
-            result = await webView21.ExecuteScriptAsync(script);
+            var result = await webView21.ExecuteScriptAsync(script);
            
         }
     
@@ -104,8 +102,13 @@ namespace WebViewJsDebugger
 
         }
 
-        private void WebView_NavigationCompleted(object sender, CoreWebView2NavigationCompletedEventArgs args)
+        private async void WebView_NavigationCompleted(object sender, CoreWebView2NavigationCompletedEventArgs args)
         {
+            if (chkPersistCode.Checked)
+            {
+                await webView21.ExecuteScriptAsync(scintilla1.Text);
+            }
+            
             notify("change page event fired");
         }
 
@@ -326,11 +329,7 @@ namespace WebViewJsDebugger
             currentFilePath = null; // Assuming you have this variable from previous interactions
         }
 
-        private void button3_Click(object sender, EventArgs e)
-        {
-            
-        }
- 
+
         private void notify(string message)
         {
             notifyIcon1.Icon = SystemIcons.Application;
@@ -375,6 +374,9 @@ namespace WebViewJsDebugger
             }
         }
 
-
+        private async void button3_Click(object sender, EventArgs e)
+        {
+            await webView21.ExecuteScriptAsync("localStorage.removeItem('tasks');");
+        }
     }
 }
