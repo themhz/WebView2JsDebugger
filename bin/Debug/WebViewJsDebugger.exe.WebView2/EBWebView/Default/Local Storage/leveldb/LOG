@@ -1,3 +1,6 @@
-2023/11/02-17:05:19.163 a3e8 Reusing MANIFEST C:\Users\themis\source\repos\WebViewJsDebugger\bin\Debug\WebViewJsDebugger.exe.WebView2\EBWebView\Default\Local Storage\leveldb/MANIFEST-000001
-2023/11/02-17:05:19.164 a3e8 Recovering log #129
-2023/11/02-17:05:19.168 a3e8 Reusing old log C:\Users\themis\source\repos\WebViewJsDebugger\bin\Debug\WebViewJsDebugger.exe.WebView2\EBWebView\Default\Local Storage\leveldb/000129.log 
+2023/11/22-12:58:29.744 31dc Reusing MANIFEST C:\Users\themis\source\repos\WebViewJsDebugger\bin\Debug\WebViewJsDebugger.exe.WebView2\EBWebView\Default\Local Storage\leveldb/MANIFEST-000001
+2023/11/22-12:58:29.746 31dc Recovering log #158
+2023/11/22-12:58:29.749 31dc Reusing old log C:\Users\themis\source\repos\WebViewJsDebugger\bin\Debug\WebViewJsDebugger.exe.WebView2\EBWebView\Default\Local Storage\leveldb/000158.log 
+2023/11/22-16:58:39.837 31dc Level-0 table #163: started
+2023/11/22-16:58:39.848 31dc Level-0 table #163: 9609 bytes OK
+2023/11/22-16:58:39.851 31dc Delete type=0 #158

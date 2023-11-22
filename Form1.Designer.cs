@@ -39,6 +39,7 @@
             this.menuSave = new System.Windows.Forms.ToolStripMenuItem();
             this.saveAsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.button3 = new System.Windows.Forms.Button();
             this.chkPersistCode = new System.Windows.Forms.CheckBox();
             this.splitContainer3 = new System.Windows.Forms.SplitContainer();
             this.lstlog = new System.Windows.Forms.ListView();
@@ -49,7 +50,6 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
-            this.button3 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.webView21)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -181,6 +181,16 @@
             this.newToolStripMenuItem.Text = "New";
             this.newToolStripMenuItem.Click += new System.EventHandler(this.newToolStripMenuItem_Click);
             // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(7, 87);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(94, 23);
+            this.button3.TabIndex = 9;
+            this.button3.Text = "Clear log";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
             // chkPersistCode
             // 
             this.chkPersistCode.AutoSize = true;
@@ -196,7 +206,7 @@
             this.splitContainer3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.splitContainer3.Location = new System.Drawing.Point(3, 173);
+            this.splitContainer3.Location = new System.Drawing.Point(3, 116);
             this.splitContainer3.Name = "splitContainer3";
             // 
             // splitContainer3.Panel1
@@ -206,7 +216,7 @@
             // splitContainer3.Panel2
             // 
             this.splitContainer3.Panel2.Controls.Add(this.txtlog);
-            this.splitContainer3.Size = new System.Drawing.Size(511, 246);
+            this.splitContainer3.Size = new System.Drawing.Size(511, 303);
             this.splitContainer3.SplitterDistance = 238;
             this.splitContainer3.TabIndex = 7;
             // 
@@ -219,7 +229,7 @@
             this.lstlog.HideSelection = false;
             this.lstlog.Location = new System.Drawing.Point(0, 0);
             this.lstlog.Name = "lstlog";
-            this.lstlog.Size = new System.Drawing.Size(238, 246);
+            this.lstlog.Size = new System.Drawing.Size(238, 303);
             this.lstlog.TabIndex = 4;
             this.lstlog.UseCompatibleStateImageBehavior = false;
             this.lstlog.View = System.Windows.Forms.View.Details;
@@ -230,7 +240,7 @@
             this.txtlog.Location = new System.Drawing.Point(0, 0);
             this.txtlog.Multiline = true;
             this.txtlog.Name = "txtlog";
-            this.txtlog.Size = new System.Drawing.Size(269, 246);
+            this.txtlog.Size = new System.Drawing.Size(269, 303);
             this.txtlog.TabIndex = 6;
             // 
             // label1
@@ -274,16 +284,6 @@
             // 
             this.notifyIcon1.Text = "notifyIcon1";
             this.notifyIcon1.Visible = true;
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(34, 75);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(94, 23);
-            this.button3.TabIndex = 9;
-            this.button3.Text = "Clear tasks";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // Form1
             // 

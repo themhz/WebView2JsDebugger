@@ -34,8 +34,8 @@ namespace WebViewJsDebugger
         {
                         
             InitializeComponent();
-            //txtUrl.Text = "https://portal.tee.gr/ypeka/auth/pages/app/dilosi.jspx";                         
-            txtUrl.Text = "https://apps.tee.gr/buildID/faces/appMain";
+            txtUrl.Text = "https://portal.tee.gr/ypeka/auth/pages/app/dilosi.jspx";                         
+            //txtUrl.Text = "https://apps.tee.gr/buildID/faces/appMain";
             this.KeyPreview = true;
             scintilla1.Lexer = Lexer.Cpp;
 
@@ -95,7 +95,13 @@ namespace WebViewJsDebugger
             string message = args.TryGetWebMessageAsString();
             webView21.WebMessageReceived -= WebView_WebMessageReceived;
             //lstlog.Items.Add(message);
-            lstlog.Columns[0].Width = -2;
+
+            if (lstlog.Columns.Count > 0)
+            {
+                lstlog.Columns[0].Width = -2;
+            }
+            
+
             lstlog.Items.Insert(0, message);
             
 
@@ -376,7 +382,7 @@ namespace WebViewJsDebugger
 
         private async void button3_Click(object sender, EventArgs e)
         {
-            await webView21.ExecuteScriptAsync("localStorage.removeItem('tasks');");
+            lstlog.Items.Clear();
         }
     }
 }
