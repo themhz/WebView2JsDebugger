@@ -384,5 +384,17 @@ namespace WebViewJsDebugger
         {
             lstlog.Items.Clear();
         }
+
+        private void postMessage_Click(object sender, EventArgs e)
+        {            
+            int currentPosition = scintilla1.CurrentPosition;
+            scintilla1.InsertText(currentPosition, FormatJson("var data = { 'taskStatus': 'success', 'message': result }; \r\nwindow.chrome.webview.postMessage(JSON.stringify(data));"));
+        }
+
+        private void QuerySelectorByIdLike_Click(object sender, EventArgs e)
+        {
+            int currentPosition = scintilla1.CurrentPosition;
+            scintilla1.InsertText(currentPosition, FormatJson("document.querySelector('[id*=\"\"{part of id}\"\"]');"));
+        }
     }
 }
