@@ -75,11 +75,23 @@ namespace WebViewJsDebugger
 
             //webView21.chan
             
-            webView21.WebMessageReceived += WebView_WebMessageReceived;
-            webView21.CoreWebView2.DownloadStarting += CoreWebView2_DownloadStarting;
             
-            // Execute the script
-            var result = await webView21.ExecuteScriptAsync(script);
+            if (webView21.CoreWebView2 != null)            
+            {
+                // Handling web message received
+                webView21.WebMessageReceived += WebView_WebMessageReceived;
+                // Handling download event
+                webView21.CoreWebView2.DownloadStarting += CoreWebView2_DownloadStarting;
+                // Execute the script
+                var result = await webView21.ExecuteScriptAsync(script);
+            }
+            else
+            {
+                notify("You need to browse to a url to upload js code"); 
+            }
+            
+            
+            
            
         }
     
