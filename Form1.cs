@@ -53,6 +53,8 @@ namespace WebViewJsDebugger
 
             webView21.NavigationCompleted += WebView_NavigationCompleted;
             lstlog.SelectedIndexChanged += lstlog_SelectedIndexChanged;
+            //webView21.CoreWebView2.DownloadStarting += CoreWebView2_DownloadStarting;
+
 
 
         }
@@ -88,11 +90,7 @@ namespace WebViewJsDebugger
             else
             {
                 notify("You need to browse to a url to upload js code"); 
-            }
-            
-            
-            
-           
+            }                                               
         }
     
 
@@ -133,6 +131,9 @@ namespace WebViewJsDebugger
         private void CoreWebView2_DownloadStarting(object sender, CoreWebView2DownloadStartingEventArgs e)
         {
             downloadOperation = e.DownloadOperation; // Store the 'DownloadOperation' for later use in events
+            
+            webView21.CoreWebView2.Profile.DefaultDownloadFolderPath = "C:\\Users\\themis\\Documents\\testdownloads";
+
             downloadOperation.BytesReceivedChanged += DownloadOperation_BytesReceivedChanged; // Subscribe to BytesReceivedChanged event
             downloadOperation.EstimatedEndTimeChanged += DownloadOperation_EstimatedEndTimeChanged; // Subsribe to EstimatedEndTimeChanged event
             downloadOperation.StateChanged += DownloadOperation_StateChanged;
