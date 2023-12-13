@@ -39,6 +39,9 @@
             this.menuSave = new System.Windows.Forms.ToolStripMenuItem();
             this.saveAsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.commandsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.postMessage = new System.Windows.Forms.ToolStripMenuItem();
+            this.QuerySelectorByIdLike = new System.Windows.Forms.ToolStripMenuItem();
             this.button3 = new System.Windows.Forms.Button();
             this.chkPersistCode = new System.Windows.Forms.CheckBox();
             this.splitContainer3 = new System.Windows.Forms.SplitContainer();
@@ -50,9 +53,6 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
-            this.commandsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.postMessage = new System.Windows.Forms.ToolStripMenuItem();
-            this.QuerySelectorByIdLike = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.webView21)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -160,30 +160,53 @@
             // menuOpen
             // 
             this.menuOpen.Name = "menuOpen";
-            this.menuOpen.Size = new System.Drawing.Size(224, 26);
+            this.menuOpen.Size = new System.Drawing.Size(141, 26);
             this.menuOpen.Text = "Open";
             this.menuOpen.Click += new System.EventHandler(this.menuOpen_Click);
             // 
             // menuSave
             // 
             this.menuSave.Name = "menuSave";
-            this.menuSave.Size = new System.Drawing.Size(224, 26);
+            this.menuSave.Size = new System.Drawing.Size(141, 26);
             this.menuSave.Text = "Save";
             this.menuSave.Click += new System.EventHandler(this.menuSave_Click);
             // 
             // saveAsToolStripMenuItem
             // 
             this.saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
-            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(141, 26);
             this.saveAsToolStripMenuItem.Text = "Save as";
             this.saveAsToolStripMenuItem.Click += new System.EventHandler(this.saveAsToolStripMenuItem_Click);
             // 
             // newToolStripMenuItem
             // 
             this.newToolStripMenuItem.Name = "newToolStripMenuItem";
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(141, 26);
             this.newToolStripMenuItem.Text = "New";
             this.newToolStripMenuItem.Click += new System.EventHandler(this.newToolStripMenuItem_Click);
+            // 
+            // commandsToolStripMenuItem
+            // 
+            this.commandsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.postMessage,
+            this.QuerySelectorByIdLike});
+            this.commandsToolStripMenuItem.Name = "commandsToolStripMenuItem";
+            this.commandsToolStripMenuItem.Size = new System.Drawing.Size(98, 24);
+            this.commandsToolStripMenuItem.Text = "Commands";
+            // 
+            // postMessage
+            // 
+            this.postMessage.Name = "postMessage";
+            this.postMessage.Size = new System.Drawing.Size(253, 26);
+            this.postMessage.Text = "PostMessage";
+            this.postMessage.Click += new System.EventHandler(this.postMessage_Click);
+            // 
+            // QuerySelectorByIdLike
+            // 
+            this.QuerySelectorByIdLike.Name = "QuerySelectorByIdLike";
+            this.QuerySelectorByIdLike.Size = new System.Drawing.Size(253, 26);
+            this.QuerySelectorByIdLike.Text = "document.querySelector";
+            this.QuerySelectorByIdLike.Click += new System.EventHandler(this.QuerySelectorByIdLike_Click);
             // 
             // button3
             // 
@@ -244,6 +267,7 @@
             this.txtlog.Location = new System.Drawing.Point(0, 0);
             this.txtlog.Multiline = true;
             this.txtlog.Name = "txtlog";
+            this.txtlog.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.txtlog.Size = new System.Drawing.Size(269, 303);
             this.txtlog.TabIndex = 6;
             // 
@@ -288,29 +312,6 @@
             // 
             this.notifyIcon1.Text = "notifyIcon1";
             this.notifyIcon1.Visible = true;
-            // 
-            // commandsToolStripMenuItem
-            // 
-            this.commandsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.postMessage,
-            this.QuerySelectorByIdLike});
-            this.commandsToolStripMenuItem.Name = "commandsToolStripMenuItem";
-            this.commandsToolStripMenuItem.Size = new System.Drawing.Size(98, 24);
-            this.commandsToolStripMenuItem.Text = "Commands";
-            // 
-            // postMessage
-            // 
-            this.postMessage.Name = "postMessage";
-            this.postMessage.Size = new System.Drawing.Size(253, 26);
-            this.postMessage.Text = "PostMessage";
-            this.postMessage.Click += new System.EventHandler(this.postMessage_Click);
-            // 
-            // QuerySelectorByIdLike
-            // 
-            this.QuerySelectorByIdLike.Name = "QuerySelectorByIdLike";
-            this.QuerySelectorByIdLike.Size = new System.Drawing.Size(253, 26);
-            this.QuerySelectorByIdLike.Text = "document.querySelector";
-            this.QuerySelectorByIdLike.Click += new System.EventHandler(this.QuerySelectorByIdLike_Click);
             // 
             // Form1
             // 
