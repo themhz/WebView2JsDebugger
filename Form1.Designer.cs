@@ -126,9 +126,9 @@
             // scintilla1
             // 
             this.scintilla1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.scintilla1.Location = new System.Drawing.Point(0, 28);
+            this.scintilla1.Location = new System.Drawing.Point(0, 30);
             this.scintilla1.Name = "scintilla1";
-            this.scintilla1.Size = new System.Drawing.Size(517, 398);
+            this.scintilla1.Size = new System.Drawing.Size(517, 396);
             this.scintilla1.TabIndex = 2;
             this.scintilla1.TextChanged += new System.EventHandler(this.scintilla1_TextChanged);
             this.scintilla1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.scintilla1_KeyDown);
@@ -142,7 +142,7 @@
             this.commandsToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(517, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(517, 30);
             this.menuStrip1.TabIndex = 3;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -154,7 +154,7 @@
             this.saveAsToolStripMenuItem,
             this.newToolStripMenuItem});
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(46, 24);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(46, 26);
             this.toolStripMenuItem1.Text = "File";
             // 
             // menuOpen
@@ -191,7 +191,7 @@
             this.postMessage,
             this.QuerySelectorByIdLike});
             this.commandsToolStripMenuItem.Name = "commandsToolStripMenuItem";
-            this.commandsToolStripMenuItem.Size = new System.Drawing.Size(98, 24);
+            this.commandsToolStripMenuItem.Size = new System.Drawing.Size(98, 26);
             this.commandsToolStripMenuItem.Text = "Commands";
             // 
             // postMessage

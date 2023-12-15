@@ -34,7 +34,8 @@ namespace WebViewJsDebugger
         {
                         
             InitializeComponent();
-            txtUrl.Text = "https://portal.tee.gr/ypeka/auth/pages/app/dilosi.jspx";                         
+            txtUrl.Text = "https://services.tee.gr/adeia/faces/main";
+            //txtUrl.Text = "https://portal.tee.gr/ypeka/auth/pages/app/dilosi.jspx";                         
             //txtUrl.Text = "https://apps.tee.gr/buildID/faces/appMain";
             this.KeyPreview = true;
             scintilla1.Lexer = Lexer.Cpp;
