@@ -18,6 +18,7 @@ using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using Jint;
 using Esprima;
+using WebViewJsDebugger.parsers;
 
 
 
@@ -29,6 +30,7 @@ namespace WebViewJsDebugger
     {
         private string currentFilePath = null;
         private SearchForm searchForm;
+        public bool downloadStringEventAttacked = false;
 
         public Form1()
         {
@@ -75,16 +77,23 @@ namespace WebViewJsDebugger
             {
                 MessageBox.Show($"Syntax error: {scripterror.Message}");
             }
-
-            //webView21.chan
-            
+                        
             
             if (webView21.CoreWebView2 != null)            
-            {
-                // Handling web message received
-                webView21.WebMessageReceived += WebView_WebMessageReceived;
-                // Handling download event
-                webView21.CoreWebView2.DownloadStarting += CoreWebView2_DownloadStarting;
+            {                
+                if (ScriptChecker.checkIfPostMessageExists(script))
+                {
+                    // Handling web message received
+                    webView21.WebMessageReceived += WebView_WebMessageReceived;
+                }
+
+                if (downloadStringEventAttacked == false)
+                {
+                    // Handling download event
+                    webView21.CoreWebView2.DownloadStarting += CoreWebView2_DownloadStarting;
+                    downloadStringEventAttacked = true;
+                }
+                
                 // Execute the script
                 var result = await webView21.ExecuteScriptAsync(script);
             }
