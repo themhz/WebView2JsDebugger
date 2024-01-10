@@ -56,6 +56,8 @@
             this.cbxUrls = new System.Windows.Forms.ComboBox();
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
+            this.openUrlsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.loadUrlsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.webView21)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -158,9 +160,11 @@
             this.menuOpen,
             this.menuSave,
             this.saveAsToolStripMenuItem,
-            this.newToolStripMenuItem});
+            this.newToolStripMenuItem,
+            this.openUrlsToolStripMenuItem,
+            this.loadUrlsToolStripMenuItem});
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(46, 26);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(46, 24);
             this.toolStripMenuItem1.Text = "File";
             // 
             // menuOpen
@@ -216,7 +220,7 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(304, 87);
+            this.button4.Location = new System.Drawing.Point(284, 87);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(94, 23);
             this.button4.TabIndex = 10;
@@ -237,7 +241,7 @@
             // chkPersistCode
             // 
             this.chkPersistCode.AutoSize = true;
-            this.chkPersistCode.Location = new System.Drawing.Point(230, 49);
+            this.chkPersistCode.Location = new System.Drawing.Point(460, 49);
             this.chkPersistCode.Name = "chkPersistCode";
             this.chkPersistCode.Size = new System.Drawing.Size(106, 20);
             this.chkPersistCode.TabIndex = 8;
@@ -308,7 +312,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(119, 46);
+            this.button1.Location = new System.Drawing.Point(458, 18);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(105, 23);
             this.button1.TabIndex = 0;
@@ -342,13 +346,27 @@
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(460, 18);
+            this.button6.Location = new System.Drawing.Point(122, 46);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(73, 23);
             this.button6.TabIndex = 13;
             this.button6.Text = "Delete";
             this.button6.UseVisualStyleBackColor = true;
             this.button6.Click += new System.EventHandler(this.button6_Click);
+            // 
+            // openUrlsToolStripMenuItem
+            // 
+            this.openUrlsToolStripMenuItem.Name = "openUrlsToolStripMenuItem";
+            this.openUrlsToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.openUrlsToolStripMenuItem.Text = "Open Urls";
+            this.openUrlsToolStripMenuItem.Click += new System.EventHandler(this.openUrlsToolStripMenuItem_Click);
+            // 
+            // loadUrlsToolStripMenuItem
+            // 
+            this.loadUrlsToolStripMenuItem.Name = "loadUrlsToolStripMenuItem";
+            this.loadUrlsToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.loadUrlsToolStripMenuItem.Text = "Load-Reload Urls";
+            this.loadUrlsToolStripMenuItem.Click += new System.EventHandler(this.loadUrlsToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -409,6 +427,8 @@
         private System.Windows.Forms.ComboBox cbxUrls;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.ToolStripMenuItem openUrlsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem loadUrlsToolStripMenuItem;
     }
 }
 

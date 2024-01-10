@@ -521,5 +521,29 @@ namespace WebViewJsDebugger
             }
 
         }
+
+        private void openUrlsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // Define a file path
+            string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "urlItems.json");
+
+            // Check if the file exists
+            if (File.Exists(filePath))
+            {
+                // Open the file with the default application
+                System.Diagnostics.Process.Start(filePath);
+            }
+            else
+            {
+                // If the file does not exist, inform the user
+                MessageBox.Show("The file does not exist.");
+            }
+        }
+
+        private void loadUrlsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            cbxUrls.Items.Clear();
+            LoadUrlFile();
+        }
     }
 }

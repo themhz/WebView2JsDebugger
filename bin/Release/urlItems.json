@@ -1,0 +1,18 @@
+[
+  {
+    "Text": "Identity",
+    "Value": "https://apps.tee.gr/buildID/faces/appMain"
+  },
+  {
+    "Text": "ADomisi",
+    "Value": "https://portal.tee.gr/ypeka/auth/pages/app/dilosi.jspx"
+  },
+  {
+    "Text": "EAdeies",
+    "Value": "https://services.tee.gr/adeia/faces/main"
+  },
+  {
+    "Text": "Google",
+    "Value": "https://www.google.com"
+  }
+]
