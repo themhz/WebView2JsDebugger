@@ -53,6 +53,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddUrlItem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddUrlItem.Designer.cs">
+      <DependentUpon>AddUrlItem.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -68,6 +74,10 @@
     <Compile Include="SearchForm.Designer.cs">
       <DependentUpon>SearchForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="UrlItem.cs" />
+    <EmbeddedResource Include="AddUrlItem.resx">
+      <DependentUpon>AddUrlItem.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>

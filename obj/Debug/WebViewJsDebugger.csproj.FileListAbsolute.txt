@@ -73,3 +73,4 @@ C:\Users\themis\source\repos\WebViewJsDebugger\obj\Debug\WebViewJsDebugger.cspro
 C:\Users\themis\source\repos\WebViewJsDebugger\obj\Debug\WebViewJsDebugger.csproj.CopyComplete
 C:\Users\themis\source\repos\WebViewJsDebugger\obj\Debug\WebViewJsDebugger.exe
 C:\Users\themis\source\repos\WebViewJsDebugger\obj\Debug\WebViewJsDebugger.pdb
+C:\Users\themis\source\repos\WebViewJsDebugger\obj\Debug\WebViewJsDebugger.AddUrlItem.resources

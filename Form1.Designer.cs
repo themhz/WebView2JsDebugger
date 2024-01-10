@@ -42,6 +42,7 @@
             this.commandsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.postMessage = new System.Windows.Forms.ToolStripMenuItem();
             this.QuerySelectorByIdLike = new System.Windows.Forms.ToolStripMenuItem();
+            this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.chkPersistCode = new System.Windows.Forms.CheckBox();
             this.splitContainer3 = new System.Windows.Forms.SplitContainer();
@@ -49,10 +50,12 @@
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.txtlog = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtUrl = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
+            this.cbxUrls = new System.Windows.Forms.ComboBox();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.webView21)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -77,7 +80,7 @@
             this.webView21.Dock = System.Windows.Forms.DockStyle.Fill;
             this.webView21.Location = new System.Drawing.Point(0, 0);
             this.webView21.Name = "webView21";
-            this.webView21.Size = new System.Drawing.Size(1031, 852);
+            this.webView21.Size = new System.Drawing.Size(946, 852);
             this.webView21.TabIndex = 0;
             this.webView21.ZoomFactor = 1D;
             // 
@@ -95,7 +98,7 @@
             // 
             this.splitContainer1.Panel2.Controls.Add(this.webView21);
             this.splitContainer1.Size = new System.Drawing.Size(1552, 852);
-            this.splitContainer1.SplitterDistance = 517;
+            this.splitContainer1.SplitterDistance = 602;
             this.splitContainer1.TabIndex = 1;
             // 
             // splitContainer2
@@ -112,23 +115,26 @@
             // 
             // splitContainer2.Panel2
             // 
+            this.splitContainer2.Panel2.Controls.Add(this.button6);
+            this.splitContainer2.Panel2.Controls.Add(this.button5);
+            this.splitContainer2.Panel2.Controls.Add(this.cbxUrls);
+            this.splitContainer2.Panel2.Controls.Add(this.button4);
             this.splitContainer2.Panel2.Controls.Add(this.button3);
             this.splitContainer2.Panel2.Controls.Add(this.chkPersistCode);
             this.splitContainer2.Panel2.Controls.Add(this.splitContainer3);
             this.splitContainer2.Panel2.Controls.Add(this.label1);
-            this.splitContainer2.Panel2.Controls.Add(this.txtUrl);
             this.splitContainer2.Panel2.Controls.Add(this.button2);
             this.splitContainer2.Panel2.Controls.Add(this.button1);
-            this.splitContainer2.Size = new System.Drawing.Size(517, 852);
+            this.splitContainer2.Size = new System.Drawing.Size(602, 852);
             this.splitContainer2.SplitterDistance = 426;
             this.splitContainer2.TabIndex = 1;
             // 
             // scintilla1
             // 
             this.scintilla1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.scintilla1.Location = new System.Drawing.Point(0, 30);
+            this.scintilla1.Location = new System.Drawing.Point(0, 28);
             this.scintilla1.Name = "scintilla1";
-            this.scintilla1.Size = new System.Drawing.Size(517, 396);
+            this.scintilla1.Size = new System.Drawing.Size(602, 398);
             this.scintilla1.TabIndex = 2;
             this.scintilla1.TextChanged += new System.EventHandler(this.scintilla1_TextChanged);
             this.scintilla1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.scintilla1_KeyDown);
@@ -142,7 +148,7 @@
             this.commandsToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(517, 30);
+            this.menuStrip1.Size = new System.Drawing.Size(602, 28);
             this.menuStrip1.TabIndex = 3;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -160,28 +166,28 @@
             // menuOpen
             // 
             this.menuOpen.Name = "menuOpen";
-            this.menuOpen.Size = new System.Drawing.Size(141, 26);
+            this.menuOpen.Size = new System.Drawing.Size(224, 26);
             this.menuOpen.Text = "Open";
             this.menuOpen.Click += new System.EventHandler(this.menuOpen_Click);
             // 
             // menuSave
             // 
             this.menuSave.Name = "menuSave";
-            this.menuSave.Size = new System.Drawing.Size(141, 26);
+            this.menuSave.Size = new System.Drawing.Size(224, 26);
             this.menuSave.Text = "Save";
             this.menuSave.Click += new System.EventHandler(this.menuSave_Click);
             // 
             // saveAsToolStripMenuItem
             // 
             this.saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
-            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(141, 26);
+            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.saveAsToolStripMenuItem.Text = "Save as";
             this.saveAsToolStripMenuItem.Click += new System.EventHandler(this.saveAsToolStripMenuItem_Click);
             // 
             // newToolStripMenuItem
             // 
             this.newToolStripMenuItem.Name = "newToolStripMenuItem";
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(141, 26);
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.newToolStripMenuItem.Text = "New";
             this.newToolStripMenuItem.Click += new System.EventHandler(this.newToolStripMenuItem_Click);
             // 
@@ -207,6 +213,16 @@
             this.QuerySelectorByIdLike.Size = new System.Drawing.Size(253, 26);
             this.QuerySelectorByIdLike.Text = "document.querySelector";
             this.QuerySelectorByIdLike.Click += new System.EventHandler(this.QuerySelectorByIdLike_Click);
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(304, 87);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(94, 23);
+            this.button4.TabIndex = 10;
+            this.button4.Text = "test";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button3
             // 
@@ -243,8 +259,8 @@
             // splitContainer3.Panel2
             // 
             this.splitContainer3.Panel2.Controls.Add(this.txtlog);
-            this.splitContainer3.Size = new System.Drawing.Size(511, 303);
-            this.splitContainer3.SplitterDistance = 238;
+            this.splitContainer3.Size = new System.Drawing.Size(596, 303);
+            this.splitContainer3.SplitterDistance = 277;
             this.splitContainer3.TabIndex = 7;
             // 
             // lstlog
@@ -256,7 +272,7 @@
             this.lstlog.HideSelection = false;
             this.lstlog.Location = new System.Drawing.Point(0, 0);
             this.lstlog.Name = "lstlog";
-            this.lstlog.Size = new System.Drawing.Size(238, 303);
+            this.lstlog.Size = new System.Drawing.Size(277, 303);
             this.lstlog.TabIndex = 4;
             this.lstlog.UseCompatibleStateImageBehavior = false;
             this.lstlog.View = System.Windows.Forms.View.Details;
@@ -268,7 +284,7 @@
             this.txtlog.Multiline = true;
             this.txtlog.Name = "txtlog";
             this.txtlog.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtlog.Size = new System.Drawing.Size(269, 303);
+            this.txtlog.Size = new System.Drawing.Size(315, 303);
             this.txtlog.TabIndex = 6;
             // 
             // label1
@@ -280,19 +296,11 @@
             this.label1.TabIndex = 3;
             this.label1.Text = "Url";
             // 
-            // txtUrl
-            // 
-            this.txtUrl.Location = new System.Drawing.Point(34, 18);
-            this.txtUrl.Name = "txtUrl";
-            this.txtUrl.Size = new System.Drawing.Size(480, 22);
-            this.txtUrl.TabIndex = 2;
-            this.txtUrl.Text = "https://apps.tee.gr/buildID/faces/appMain";
-            // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(34, 46);
+            this.button2.Location = new System.Drawing.Point(381, 18);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(79, 23);
+            this.button2.Size = new System.Drawing.Size(73, 23);
             this.button2.TabIndex = 1;
             this.button2.Text = "Browse";
             this.button2.UseVisualStyleBackColor = true;
@@ -312,6 +320,35 @@
             // 
             this.notifyIcon1.Text = "notifyIcon1";
             this.notifyIcon1.Visible = true;
+            // 
+            // cbxUrls
+            // 
+            this.cbxUrls.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxUrls.FormattingEnabled = true;
+            this.cbxUrls.Location = new System.Drawing.Point(34, 16);
+            this.cbxUrls.Name = "cbxUrls";
+            this.cbxUrls.Size = new System.Drawing.Size(341, 24);
+            this.cbxUrls.TabIndex = 11;
+            // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(34, 46);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(82, 23);
+            this.button5.TabIndex = 12;
+            this.button5.Text = "Add Url";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // button6
+            // 
+            this.button6.Location = new System.Drawing.Point(460, 18);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(73, 23);
+            this.button6.TabIndex = 13;
+            this.button6.Text = "Delete";
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // Form1
             // 
@@ -351,7 +388,6 @@
         private ScintillaNET.Scintilla scintilla1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtUrl;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
@@ -369,6 +405,10 @@
         private System.Windows.Forms.ToolStripMenuItem commandsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem postMessage;
         private System.Windows.Forms.ToolStripMenuItem QuerySelectorByIdLike;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.ComboBox cbxUrls;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button button6;
     }
 }
 

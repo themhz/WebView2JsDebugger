@@ -19,10 +19,7 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using Jint;
 using Esprima;
 using WebViewJsDebugger.parsers;
-
-
-
-
+using Newtonsoft.Json;
 
 namespace WebViewJsDebugger
 {
@@ -30,13 +27,14 @@ namespace WebViewJsDebugger
     {
         private string currentFilePath = null;
         private SearchForm searchForm;
+        private AddUrlItem urlItemForm;
         public bool downloadStringEventAttacked = false;
 
         public Form1()
         {
                         
             InitializeComponent();
-            txtUrl.Text = "https://services.tee.gr/adeia/faces/main";
+            //txtUrl.Text = "https://services.tee.gr/adeia/faces/main";
             //txtUrl.Text = "https://portal.tee.gr/ypeka/auth/pages/app/dilosi.jspx";                         
             //txtUrl.Text = "https://apps.tee.gr/buildID/faces/appMain";
             this.KeyPreview = true;
@@ -57,7 +55,7 @@ namespace WebViewJsDebugger
             webView21.NavigationCompleted += WebView_NavigationCompleted;
             lstlog.SelectedIndexChanged += lstlog_SelectedIndexChanged;
             //webView21.CoreWebView2.DownloadStarting += CoreWebView2_DownloadStarting;
-
+            LoadUrlFile();
 
 
         }
@@ -106,15 +104,18 @@ namespace WebViewJsDebugger
 
         private async void button2_Click(object sender, EventArgs e)
         {
-            webView21.Source = new Uri(txtUrl.Text, UriKind.Absolute);
+            if ((UrlItem)cbxUrls.SelectedItem != null)
+            {
+                webView21.Source = new Uri(((UrlItem)cbxUrls.SelectedItem).Value, UriKind.Absolute);
+            }
+            
         }
 
         private void WebView_WebMessageReceived(object sender, CoreWebView2WebMessageReceivedEventArgs args)
         {
             notify("WebMessageReceived event fired");
             string message = args.TryGetWebMessageAsString();
-            webView21.WebMessageReceived -= WebView_WebMessageReceived;
-            //lstlog.Items.Add(message);
+            webView21.WebMessageReceived -= WebView_WebMessageReceived;        
 
             if (lstlog.Columns.Count > 0)
             {
@@ -293,6 +294,7 @@ namespace WebViewJsDebugger
                 e.SuppressKeyPress = true;  // Add this line
 
             }
+            
         }
         private void SearchForm_FindNextClicked(object sender, EventArgs e)
         {
@@ -313,9 +315,11 @@ namespace WebViewJsDebugger
             }
         }
 
+        
 
 
-        private void scintilla1_KeyPress(object sender, KeyPressEventArgs e)
+
+            private void scintilla1_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == 19) // Ctrl + S is represented by the ASCII value 19
             {
@@ -418,6 +422,104 @@ namespace WebViewJsDebugger
         {
             int currentPosition = scintilla1.CurrentPosition;
             scintilla1.InsertText(currentPosition, FormatJson("document.querySelector('[id*=\"\"{part of id}\"\"]');"));
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            webView21.WebMessageReceived += WebView_WebMessageReceived;
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            
+            
+            if (urlItemForm == null || urlItemForm.IsDisposed)
+            {
+                urlItemForm = new AddUrlItem();
+                urlItemForm.AddUrl += AddItemUrlForm_AddItemClicked;
+            }
+            urlItemForm.Show();
+            
+        }
+
+        private void AddItemUrlForm_AddItemClicked(object sender, EventArgs e)
+        {
+            UrlItem urlItem = new UrlItem(urlItemForm.name, urlItemForm.url);
+            cbxUrls.Items.Add(urlItem);
+            cbxUrls.SelectedItem = urlItem;
+            urlItemForm.Hide();
+            SaveUrlFile();
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            if (cbxUrls.SelectedIndex >= 0) // Check if an item is selected
+            {
+                cbxUrls.Items.RemoveAt(cbxUrls.SelectedIndex);
+
+                if(cbxUrls.Items.Count > 0) { 
+                    cbxUrls.SelectedIndex = 0;
+                    RemoveUrlFile();
+                }                    
+            }
+        }
+
+        private void SaveUrlFile()
+        {
+            // Create a list to store all UrlItems
+            List<UrlItem> allItems = cbxUrls.Items.Cast<UrlItem>().ToList();
+
+            // Serialize the list to JSON
+            string json = JsonConvert.SerializeObject(allItems, Formatting.Indented);
+
+            // Define a file path
+            string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "urlItems.json");
+
+            // Write the JSON to the file
+            File.WriteAllText(filePath, json);
+        }
+
+        private void RemoveUrlFile()
+        {
+            // Create a list to store all UrlItems left
+            List<UrlItem> allItems = cbxUrls.Items.Cast<UrlItem>().ToList();
+
+            // Serialize the list to JSON
+            string json = JsonConvert.SerializeObject(allItems, Formatting.Indented);
+
+            // Define a file path
+            string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "urlItems.json");
+
+            // Write the JSON to the file
+            File.WriteAllText(filePath, json);
+        }
+
+        private void LoadUrlFile()
+        {
+            
+            string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "urlItems.json");
+
+            // Check if the file exists
+            if (File.Exists(filePath))
+            {
+                // Read the JSON from the file
+                string json = File.ReadAllText(filePath);
+
+                // Deserialize the JSON to a list of UrlItems
+                List<UrlItem> allItems = JsonConvert.DeserializeObject<List<UrlItem>>(json);
+
+                // Add the items to the ComboBox
+                foreach (var item in allItems)
+                {
+                    cbxUrls.Items.Add(item);
+                }
+
+                if (cbxUrls.Items.Count > 0)
+                {
+                    cbxUrls.SelectedIndex = 0;                    
+                }
+            }
+
         }
     }
 }
