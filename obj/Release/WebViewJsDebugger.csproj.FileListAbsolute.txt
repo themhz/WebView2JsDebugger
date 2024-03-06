@@ -74,3 +74,4 @@ C:\Users\themis\source\repos\WebViewJsDebugger\obj\Release\WebViewJsDebugger.csp
 C:\Users\themis\source\repos\WebViewJsDebugger\obj\Release\WebViewJsDebugger.exe
 C:\Users\themis\source\repos\WebViewJsDebugger\obj\Release\WebViewJsDebugger.pdb
 C:\Users\themis\source\repos\WebViewJsDebugger\obj\Release\WebViewJsDebugger.AddUrlItem.resources
+C:\Users\themis\source\repos\WebViewJsDebugger\bin\Release\WindowsInput.dll

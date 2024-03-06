@@ -1,9 +1,5 @@
 [
   {
-    "Text": "Identity",
-    "Value": "https://apps.tee.gr/buildID/faces/appMain"
-  },
-  {
     "Text": "ADomisi",
     "Value": "https://portal.tee.gr/ypeka/auth/pages/app/dilosi.jspx"
   },
@@ -12,7 +8,19 @@
     "Value": "https://services.tee.gr/adeia/faces/main"
   },
   {
-    "Text": "Google",
-    "Value": "https://www.google.com"
+    "Text": "ΕΦΚΑ",
+    "Value": "https://apps.e-efka.gov.gr/ePrivateConstructions/secure/Constructions.xhtml"
+  },
+  {
+    "Text": "logout",
+    "Value": "https://sso.tee.gr/oam/server/logout?end_url=https://www.tee.gr"
+  },
+  {
+    "Text": "http://93.174.125.40/",
+    "Value": "http://93.174.125.40/"
+  },
+  {
+    "Text": "Identity",
+    "Value": "https://apps.tee.gr/buildID/faces/appMain"
   }
 ]

@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "LCsrD1FSo2q1KqU1YGSTBmGb18dXcklUZJ7gHuQEYjZ+FuI93n3jHn9gg38NlXzpGnGj5GSrVoK7NQ9TeXeDsw==",
+  "dgSpecHash": "Nn6g9S0mgEjOFY5UxfAriS+9AYuMvMfaBZmYBVIa0Kjmbw3Fja9yZXZKb1kua/0obHXt1qbH+STTrvvGGtTvXQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\themis\\source\\repos\\WebViewJsDebugger\\WebViewJsDebugger.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\themis\\.nuget\\packages\\esprima\\3.0.1\\esprima.3.0.1.nupkg.sha512",
+    "C:\\Users\\themis\\.nuget\\packages\\inputsimulator\\1.0.4\\inputsimulator.1.0.4.nupkg.sha512",
     "C:\\Users\\themis\\.nuget\\packages\\jacobslusser.scintillanet\\3.6.3\\jacobslusser.scintillanet.3.6.3.nupkg.sha512",
     "C:\\Users\\themis\\.nuget\\packages\\jint\\2.11.58\\jint.2.11.58.nupkg.sha512",
     "C:\\Users\\themis\\.nuget\\packages\\microsoft.netframework.referenceassemblies\\1.0.0\\microsoft.netframework.referenceassemblies.1.0.0.nupkg.sha512",

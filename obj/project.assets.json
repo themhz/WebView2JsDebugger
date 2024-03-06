@@ -18,6 +18,19 @@
           }
         }
       },
+      "InputSimulator/1.0.4": {
+        "type": "package",
+        "compile": {
+          "lib/net20/WindowsInput.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net20/WindowsInput.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "jacobslusser.ScintillaNET/3.6.3": {
         "type": "package",
         "compile": {
@@ -343,6 +356,19 @@
           }
         }
       },
+      "InputSimulator/1.0.4": {
+        "type": "package",
+        "compile": {
+          "lib/net20/WindowsInput.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net20/WindowsInput.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "jacobslusser.ScintillaNET/3.6.3": {
         "type": "package",
         "compile": {
@@ -650,6 +676,19 @@
         },
         "runtime": {
           "lib/net462/Esprima.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "InputSimulator/1.0.4": {
+        "type": "package",
+        "compile": {
+          "lib/net20/WindowsInput.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net20/WindowsInput.dll": {
             "related": ".xml"
           }
         }
@@ -968,6 +1007,19 @@
           }
         }
       },
+      "InputSimulator/1.0.4": {
+        "type": "package",
+        "compile": {
+          "lib/net20/WindowsInput.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net20/WindowsInput.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "jacobslusser.ScintillaNET/3.6.3": {
         "type": "package",
         "compile": {
@@ -1278,6 +1330,19 @@
         },
         "runtime": {
           "lib/net462/Esprima.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "InputSimulator/1.0.4": {
+        "type": "package",
+        "compile": {
+          "lib/net20/WindowsInput.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net20/WindowsInput.dll": {
             "related": ".xml"
           }
         }
@@ -1596,6 +1661,19 @@
         "lib/netstandard2.0/Esprima.xml",
         "lib/netstandard2.1/Esprima.dll",
         "lib/netstandard2.1/Esprima.xml"
+      ]
+    },
+    "InputSimulator/1.0.4": {
+      "sha512": "D0LvRCPQMX6/FJHBjng+RO+wRDuHTJrfo7IAc7rmkPvRqchdVGJWg3y70peOtDy3OLNK+HSOwVkH4GiuLnkKgA==",
+      "type": "package",
+      "path": "inputsimulator/1.0.4",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "inputsimulator.1.0.4.nupkg.sha512",
+        "inputsimulator.nuspec",
+        "lib/net20/WindowsInput.dll",
+        "lib/net20/WindowsInput.xml"
       ]
     },
     "jacobslusser.ScintillaNET/3.6.3": {
@@ -2641,6 +2719,7 @@
   },
   "projectFileDependencyGroups": {
     ".NETFramework,Version=v4.7.2": [
+      "InputSimulator >= 1.0.4",
       "Jint >= 2.11.58",
       "Microsoft.NETFramework.ReferenceAssemblies >= 1.0.0",
       "Microsoft.NETFramework.ReferenceAssemblies.net472 >= 1.0.0",
@@ -2700,6 +2779,10 @@
     "frameworks": {
       "net472": {
         "dependencies": {
+          "InputSimulator": {
+            "target": "Package",
+            "version": "[1.0.4, )"
+          },
           "Jint": {
             "target": "Package",
             "version": "[2.11.58, )"

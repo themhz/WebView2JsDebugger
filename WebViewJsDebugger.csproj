@@ -110,6 +110,9 @@
     <PackageReference Include="esprima">
       <Version>3.0.1</Version>
     </PackageReference>
+    <PackageReference Include="InputSimulator">
+      <Version>1.0.4</Version>
+    </PackageReference>
     <PackageReference Include="jacobslusser.ScintillaNET">
       <Version>3.6.3</Version>
     </PackageReference>

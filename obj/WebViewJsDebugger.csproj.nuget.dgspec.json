@@ -44,6 +44,10 @@
       "frameworks": {
         "net472": {
           "dependencies": {
+            "InputSimulator": {
+              "target": "Package",
+              "version": "[1.0.4, )"
+            },
             "Jint": {
               "target": "Package",
               "version": "[2.11.58, )"

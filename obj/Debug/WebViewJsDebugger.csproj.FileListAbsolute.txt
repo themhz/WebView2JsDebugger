@@ -5,6 +5,7 @@ C:\Users\themis\source\repos\WebViewJsDebugger\bin\Debug\WebViewJsDebugger.exe.c
 C:\Users\themis\source\repos\WebViewJsDebugger\bin\Debug\WebViewJsDebugger.exe
 C:\Users\themis\source\repos\WebViewJsDebugger\bin\Debug\WebViewJsDebugger.pdb
 C:\Users\themis\source\repos\WebViewJsDebugger\bin\Debug\Esprima.dll
+C:\Users\themis\source\repos\WebViewJsDebugger\bin\Debug\WindowsInput.dll
 C:\Users\themis\source\repos\WebViewJsDebugger\bin\Debug\ScintillaNET.dll
 C:\Users\themis\source\repos\WebViewJsDebugger\bin\Debug\Jint.dll
 C:\Users\themis\source\repos\WebViewJsDebugger\bin\Debug\Microsoft.Web.WebView2.Core.dll
@@ -65,6 +66,7 @@ C:\Users\themis\source\repos\WebViewJsDebugger\bin\Debug\ru\DevExpress.Pdf.v21.2
 C:\Users\themis\source\repos\WebViewJsDebugger\obj\Debug\WebViewJsDebugger.csproj.AssemblyReference.cache
 C:\Users\themis\source\repos\WebViewJsDebugger\obj\Debug\WebViewJsDebugger.csproj.SuggestedBindingRedirects.cache
 C:\Users\themis\source\repos\WebViewJsDebugger\obj\Debug\WebViewJsDebugger.exe.config
+C:\Users\themis\source\repos\WebViewJsDebugger\obj\Debug\WebViewJsDebugger.AddUrlItem.resources
 C:\Users\themis\source\repos\WebViewJsDebugger\obj\Debug\WebViewJsDebugger.Form1.resources
 C:\Users\themis\source\repos\WebViewJsDebugger\obj\Debug\WebViewJsDebugger.Properties.Resources.resources
 C:\Users\themis\source\repos\WebViewJsDebugger\obj\Debug\WebViewJsDebugger.SearchForm.resources
@@ -73,4 +75,3 @@ C:\Users\themis\source\repos\WebViewJsDebugger\obj\Debug\WebViewJsDebugger.cspro
 C:\Users\themis\source\repos\WebViewJsDebugger\obj\Debug\WebViewJsDebugger.csproj.CopyComplete
 C:\Users\themis\source\repos\WebViewJsDebugger\obj\Debug\WebViewJsDebugger.exe
 C:\Users\themis\source\repos\WebViewJsDebugger\obj\Debug\WebViewJsDebugger.pdb
-C:\Users\themis\source\repos\WebViewJsDebugger\obj\Debug\WebViewJsDebugger.AddUrlItem.resources

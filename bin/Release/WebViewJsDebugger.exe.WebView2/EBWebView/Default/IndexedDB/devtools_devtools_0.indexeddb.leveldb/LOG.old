@@ -1,3 +1,15 @@
-2024/01/05-16:53:19.183 2f68 Reusing MANIFEST C:\Users\themis\source\repos\WebViewJsDebugger\bin\Release\WebViewJsDebugger.exe.WebView2\EBWebView\Default\IndexedDB\devtools_devtools_0.indexeddb.leveldb/MANIFEST-000001
-2024/01/05-16:53:19.183 2f68 Recovering log #31
-2024/01/05-16:53:19.185 2f68 Reusing old log C:\Users\themis\source\repos\WebViewJsDebugger\bin\Release\WebViewJsDebugger.exe.WebView2\EBWebView\Default\IndexedDB\devtools_devtools_0.indexeddb.leveldb/000031.log 
+2024/03/05-12:46:39.868 1e18 Reusing MANIFEST C:\Users\themis\source\repos\WebViewJsDebugger\bin\Release\WebViewJsDebugger.exe.WebView2\EBWebView\Default\IndexedDB\devtools_devtools_0.indexeddb.leveldb/MANIFEST-000001
+2024/03/05-12:46:39.869 1e18 Recovering log #63
+2024/03/05-12:46:39.869 1e18 Reusing old log C:\Users\themis\source\repos\WebViewJsDebugger\bin\Release\WebViewJsDebugger.exe.WebView2\EBWebView\Default\IndexedDB\devtools_devtools_0.indexeddb.leveldb/000063.log 
+2024/03/05-12:59:19.581 6688 Level-0 table #68: started
+2024/03/05-12:59:19.594 6688 Level-0 table #68: 190 bytes OK
+2024/03/05-12:59:19.597 6688 Delete type=0 #63
+2024/03/05-12:59:19.599 6688 Manual compaction at level-0 from (begin) .. (end); will stop at (end)
+2024/03/05-12:59:19.601 6688 Manual compaction at level-1 from (begin) .. (end); will stop at '\x00\x00\x00\x00\x06' @ 4144 : 1
+2024/03/05-12:59:19.602 6688 Compacting 1@1 + 1@2 files
+2024/03/05-12:59:19.611 6688 Generated table #69@1: 63 keys, 56911 bytes
+2024/03/05-12:59:19.611 6688 Compacted 1@1 + 1@2 files => 56911 bytes
+2024/03/05-12:59:19.614 6688 compacted to: files[ 0 0 1 0 0 0 0 ]
+2024/03/05-12:59:19.615 6688 Delete type=2 #65
+2024/03/05-12:59:19.615 6688 Delete type=2 #68
+2024/03/05-12:59:19.616 6688 Manual compaction at level-1 from '\x00\x00\x00\x00\x06' @ 4144 : 1 .. (end); will stop at (end)

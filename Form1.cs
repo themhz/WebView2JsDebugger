@@ -20,6 +20,8 @@ using Jint;
 using Esprima;
 using WebViewJsDebugger.parsers;
 using Newtonsoft.Json;
+using Windows.UI.Xaml.Controls;
+
 
 namespace WebViewJsDebugger
 {
@@ -34,6 +36,7 @@ namespace WebViewJsDebugger
         {
                         
             InitializeComponent();
+            
             //txtUrl.Text = "https://services.tee.gr/adeia/faces/main";
             //txtUrl.Text = "https://portal.tee.gr/ypeka/auth/pages/app/dilosi.jspx";                         
             //txtUrl.Text = "https://apps.tee.gr/buildID/faces/appMain";
@@ -53,6 +56,7 @@ namespace WebViewJsDebugger
             scintilla1.Styles[Style.Cpp.Identifier].ForeColor = Color.Black;
 
             webView21.NavigationCompleted += WebView_NavigationCompleted;
+
             lstlog.SelectedIndexChanged += lstlog_SelectedIndexChanged;
             //webView21.CoreWebView2.DownloadStarting += CoreWebView2_DownloadStarting;
             LoadUrlFile();
@@ -115,6 +119,11 @@ namespace WebViewJsDebugger
         {
             notify("WebMessageReceived event fired");
             string message = args.TryGetWebMessageAsString();
+            if (tcs.Task.IsCompleted)
+            {
+                tcs.SetResult(message); // Set the result of the task to the received message
+            }
+
             webView21.WebMessageReceived -= WebView_WebMessageReceived;        
 
             if (lstlog.Columns.Count > 0)
@@ -162,6 +171,19 @@ namespace WebViewJsDebugger
                 downloadOperation.BytesReceivedChanged -= DownloadOperation_BytesReceivedChanged;
                 downloadOperation.EstimatedEndTimeChanged -= DownloadOperation_EstimatedEndTimeChanged;
                 downloadOperation.StateChanged -= DownloadOperation_StateChanged;
+            }
+        }
+
+        private void OnWebResourceRequested(object sender, CoreWebView2WebResourceRequestedEventArgs e)
+        {
+            var request = e.Request;
+            var response = e.Response;
+
+            if (request.Uri.Contains("your_upload_endpoint") && response != null)
+            {
+                // Optionally, check the response status code or body to confirm success
+                Console.WriteLine("Upload detected");
+                // Perform your post-upload logic here
             }
         }
 
@@ -424,9 +446,83 @@ namespace WebViewJsDebugger
             scintilla1.InsertText(currentPosition, FormatJson("document.querySelector('[id*=\"\"{part of id}\"\"]');"));
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private TaskCompletionSource<string> tcs = new TaskCompletionSource<string>();
+        private async void button4_Click(object sender, EventArgs e)
         {
-            webView21.WebMessageReceived += WebView_WebMessageReceived;
+            string[] args = { "C:\\Users\\themis\\Desktop\\compares\\first.txt", 
+                              "C:\\Users\\themis\\Desktop\\compares\\second.txt",
+                              "C:\\Users\\themis\\Desktop\\compares\\one.txt",
+                              "C:\\Users\\themis\\Desktop\\compares\\two.txt",
+                              "C:\\Users\\themis\\Desktop\\compares\\three.txt",
+                              "C:\\Users\\themis\\Desktop\\compares\\four.txt",
+                              "C:\\Users\\themis\\Desktop\\compares\\five.txt",
+                              "C:\\Users\\themis\\Desktop\\compares\\six.txt",
+            };
+            var simulator = new WindowsInput.InputSimulator();
+
+            
+            foreach (string arg in args)
+            {
+                
+                //Επιλογή τυπου αρχείου
+                await webView21.ExecuteScriptAsync($@"var selectElement = document.querySelector('[id*="":soc6::content""]');
+                                                    var desiredOptionText = ""Αρχείο κειμένου"";
+                                                    Array.from(selectElement.options).forEach(function(optionElement) {{
+                                                        if (optionElement.text === desiredOptionText) {{
+                                                            optionElement.selected = 'selected';
+                                                        }}
+                                                    }});");
+
+                await Task.Delay(2000);
+                //Επιλογή κατηγορίας, δηλαδή click στον πίνακα
+                await webView21.ExecuteScriptAsync($@"
+                    var table = document.querySelector('[id*=""pc2:t1::db""]').querySelector(""table"");                    
+                    for (var i = 0; i < table.rows.length; i++) {{
+                        var row = table.rows[i];       
+                        if(row.cells[1].innerText==""Υπεύθυνη Δήλωση μηχανικού ή βεβαίωση μηχανικού""){{
+                            row.click();
+                            break;
+                        }}
+                    }}
+                ");
+
+                await Task.Delay(2000);
+
+                //Άνοιγμα του file dialog
+                await webView21.ExecuteScriptAsync("document.querySelector('[id*=\":if1::content\"]').click();");
+                await Task.Delay(2000);
+                //Πληκτρολόγιση του τύπου αρχείου
+                simulator.Keyboard.TextEntry(arg);
+
+                await Task.Delay(2000);
+                //Πάτημα του enter
+                simulator.Keyboard.KeyPress(WindowsInput.Native.VirtualKeyCode.RETURN);
+                await Task.Delay(2000);
+                //Ανέβασμα αρχείουcompares\five.txt                
+                
+                await webView21.ExecuteScriptAsync("document.querySelector('[id*=\":b1\"]').querySelector('a').click();");
+                await Task.Delay(2000);
+
+                await webView21.ExecuteScriptAsync($@"
+                    var table = document.querySelector('[id*=""pc2:t1::db""]').querySelector(""table"");
+                    for (var i = 0; i < table.rows.length; i++) {{
+                        var row = table.rows[i];
+                        if(row.cells[1].innerText==""Υπεύθυνη Δήλωση μηχανικού ή βεβαίωση μηχανικού""){{
+                            var data = {{ 'taskStatus': 'success', 'message': row.cells[3].innerText }}; 
+                            window.chrome.webview.postMessage(JSON.stringify(data));
+                            break;
+                        }}
+                    }}
+                ");
+                var response = await tcs.Task;
+
+                await Task.Delay(2000);
+
+
+            }       
+           
+
+
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -544,6 +640,14 @@ namespace WebViewJsDebugger
         {
             cbxUrls.Items.Clear();
             LoadUrlFile();
+        }
+
+        private async void button7_Click(object sender, EventArgs e)
+        {
+
+            await webView21.ExecuteScriptAsync("document.querySelector('[id*=\":b1\"]').querySelector('a').click();");
+            //var response = await tcs.Task;
+
         }
     }
 }
