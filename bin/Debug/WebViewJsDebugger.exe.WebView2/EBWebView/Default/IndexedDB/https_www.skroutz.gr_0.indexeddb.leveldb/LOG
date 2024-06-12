@@ -1,7 +1,0 @@
-2023/11/03-13:08:08.109 b3fc Reusing MANIFEST C:\Users\themis\source\repos\WebViewJsDebugger\bin\Debug\WebViewJsDebugger.exe.WebView2\EBWebView\Default\IndexedDB\https_www.skroutz.gr_0.indexeddb.leveldb/MANIFEST-000001
-2023/11/03-13:08:08.109 b3fc Recovering log #3
-2023/11/03-13:08:08.114 b3fc Reusing old log C:\Users\themis\source\repos\WebViewJsDebugger\bin\Debug\WebViewJsDebugger.exe.WebView2\EBWebView\Default\IndexedDB\https_www.skroutz.gr_0.indexeddb.leveldb/000003.log 
-2023/11/03-13:08:21.167 b3fc Level-0 table #5: started
-2023/11/03-13:08:21.170 b3fc Level-0 table #5: 72320 bytes OK
-2023/11/03-13:08:21.172 b3fc Delete type=0 #3
-2023/11/03-13:08:21.173 b3fc Manual compaction at level-0 from (begin) .. (end); will stop at (end)
